@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/pages-starter.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Oct 2021 02:21:05 GMT -->
+<head th:fragment="top-header">
+    <meta charset="utf-8" />
+    <title>Lunoz - Online Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}">
+    
+     <!-- Plugins css -->
+    <link th:href="@{/plugins/datatables/dataTables.bootstrap4.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/plugins/datatables/responsive.bootstrap4.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/plugins/datatables/buttons.bootstrap4.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/plugins/datatables/select.bootstrap4.css}" rel="stylesheet" type="text/css" />
+    
+      <!-- Dropify css -->
+    <link th:href="@{/plugins/dropify/dropify.min.css}" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/icons.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/theme.min.css}" rel="stylesheet" type="text/css" />
+    <style>
+    	.has-error{
+			color: crimson;
+		}
+    </style>
+
+</head>
+
+<body>
+
+		<div th:fragment="top-nav">
+        <header id="page-topbar">
+            <div class="navbar-header">
+
+                <div class="d-flex align-items-left">
+                    <button type="button" class="btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect"
+                        id="vertical-menu-btn">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+
+                    <div class="dropdown d-none d-sm-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="mdi mdi-plus"></i> Menu
+                            <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <!-- item-->
+                            <a th:href="@{/add-new-quiz}" class="dropdown-item notify-item">
+                                Add Quiz
+                            </a>
+							<a href="/template/quiz.json" class="dropdown-item notify-item">
+                                Download Quiz Template
+                            </a>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center">
+                	 <div class="dropdown d-inline-block ml-2" sec:authorize="isAnonymous()">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                          <!--  <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-3.jpg"
+                                alt="Header Avatar">-->
+                            <span class="d-none d-sm-inline-block ml-1"  sec:authorize="isAnonymous()">Account</span>
+                            <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                        </button>
+                        
+                    </div>
+					
+                    <div class="dropdown d-inline-block ml-2" sec:authorize="isAuthenticated()">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                          <!--  <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-3.jpg"
+                                alt="Header Avatar">-->
+                            <span class="d-none d-sm-inline-block ml-1"  sec:authentication="name">Jamie D.</span>
+                            <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" sec:authorize="isAuthenticated()">
+                            <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                th:href="@{/logout}" sec:authorize="isAuthenticated()">
+                                <span>Log Out</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    </div>
+        <!-- ========== Left Sidebar Start ========== -->
+     <div th:fragment="sidebar">
+        <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <div class="navbar-brand-box">
+                    <a href="index.html" class="logo">
+                        <img th:src="@{/images/logo-light.png}" />
+                    </a>
+                </div>
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title">Menu</li>
+
+                        <li>
+                            <a th:href="@{/home}" class="waves-effect"><i class='bx bx-home-smile'></i>
+                            <span class="badge badge-pill badge-primary float-right"></span>
+                            <span>Home</span></a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/quiz}" class="waves-effect"><i class="bx bx-file"></i>
+                            <span>Quiz</span></a>
+                        </li>
+
+                        <li>
+	                        <a th:href="@{/reviews}" class=" waves-effect"><i class="bx bx-calendar"></i>
+	                        <span>Review</span></a>
+                        </li>
+                        <li>
+                            <a th:href="@{/result}" class="waves-effect"><i class="bx bx-table"></i>
+                            <span>Result</span></a>
+                        </li>
+                         <li>
+                            <a th:href="@{/logout}" class="waves-effect"><i class="bx bx-log-out-circle"></i>
+                            <span>Logout</span></a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+    </div>
+        <!-- Left Sidebar End -->
+
+			<div th:fragment="footer">
+	            <footer class="footer">
+	                <div class="container-fluid">
+	                    <div class="row">
+	                        <div class="col-sm-6">
+	                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | &copy; Lunoz Online
+	                        </div>
+	                        <div class="col-sm-6">
+	                            <div class="text-sm-right d-none d-sm-block">
+	                                <!--Design & Develop by Myra-->
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </footer>
+			</div>
+
+        </div>
+        <!-- end main content-->
+
+   
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+
+    <!-- jQuery  -->
+    <div th:fragment="scripts">
+	    <script th:src="@{/js/jquery.min.js}"></script>
+	    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	    <script th:src="@{/js/metismenu.min.js}"></script>
+	    <script th:src="@{/js/waves.js}"></script>
+	    <script th:src="@{/js/simplebar.min.js}"></script>
+	
+	    <!-- App js -->
+	    <script th:src="@{/js/theme.js}"></script>
+    </div>
+    <div th:fragment="dropify">
+	    <!--dropify-->
+	    <script th:src="@{/plugins/dropify/dropify.min.js}"></script>
+	    <!-- Init js-->
+	    <script th:src="@{/pages/fileuploads-demo.js}"></script>
+    </div>
+    <div th:fragment="table-plugins">
+    	<script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/dataTables.bootstrap4.js}"></script>
+	    <script th:src="@{/plugins/datatables/dataTables.responsive.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/responsive.bootstrap4.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/dataTables.buttons.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/buttons.bootstrap4.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/buttons.html5.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/buttons.flash.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/buttons.print.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/dataTables.keyTable.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/dataTables.select.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/pdfmake.min.js}"></script>
+	    <script th:src="@{/plugins/datatables/vfs_fonts.js}"></script>
+	    <!-- third party js ends -->
+	
+	    <!-- Datatables init -->
+	    <script th:src="@{/pages/datatables-demo.js}"></script>
+    </div>
+</body>
+
+
+<!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/pages-starter.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Oct 2021 02:21:05 GMT -->
+</html>

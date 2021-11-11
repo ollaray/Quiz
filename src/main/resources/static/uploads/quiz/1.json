@@ -1,0 +1,16 @@
+[
+  {
+    "question": "Who is the president of the United States of America?",
+    "a": "Joseph Biden",
+    "b": "Barrack Obama",
+    "c": "Donald Trump",
+    "answer": "a"
+  },
+  {
+    "question": "What is the capital of the United States of America?",
+    "a": "New York",
+    "b": "Chicago",
+    "c": "Washington D.C",
+    "answer": "c"
+  }
+]

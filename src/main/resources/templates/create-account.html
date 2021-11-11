@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    
+<!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/pages-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Oct 2021 02:21:06 GMT -->
+<head th:replace="commons/fragmentation :: top-header" />
+
+<body class="bg-primary">
+
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex align-items-center min-vh-100">
+                        <div class="w-100 d-block my-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8 col-lg-5">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="text-center mb-4 mt-3">
+                                                <a th:href="@{/}">
+                                                    <span><img th:src="@{/images/logo-dark.png}" alt="" height="26"></span>
+                                                </a>
+                                            </div>
+                                            <form th:action="@{/registration}" method="POST" th:object="${userForm}" class="p-2">
+                                            <input type="hidden" name="id" th:value="${userForm.id}" />
+                                            <div class="alert alert-info" th:if="${updateUserInfo}">User info updated</div>
+                                            <div th:if="${msg}">
+												<div class="alert alert-success" th:text="${msg}"></div>
+											</div>
+                                                <div class="form-group">
+                                                   <label for="firstName">Firstname*</label>
+													<input type="text" class="form-control" name="firstname"  id="firstname"
+														th:field="*{firstname}"/>
+													<span class="has-error" th:if="${#fields.hasErrors('firstname')}"  th:errors="*{firstname}"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="lastName">Lastname*</label>
+													<input type="text" class="form-control" name="lastname"  id="lastname"
+													th:field="*{lastname}"  />
+													<span class="has-error" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="email">Email *</label>
+													<input type="text" class="form-control" name="email" id="email" th:field="*{email}" />
+													 <span class="has-error" th:if="${#fields.hasErrors('email')}"  th:errors="*{email}"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="phone">Phone </label>
+													<input type="text" class="form-control" name="phone"  id="phone" th:field="*{phone}" />
+													<span class="has-error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label for="address">Address</label>
+													<textarea  class="form-control" name="address"  id="address" th:field="*{address}" >
+													</textarea>
+													<span class="has-error" th:if="${#fields.hasErrors('address')}" th:errors={address}></span>
+                                                </div>
+                                                <div class="form-group">
+		                                            <label for="roles">User Role*</label>
+		                                            <select class="form-control" name="roles" id="roles" th:field="*{roles}">
+		                                            	<option value="" selected disabled="disabled">Select User Role</option>
+		                                                <option value="1">ADMIN</option>
+		                                                <option value="2">USER</option>
+		                                                
+		                                            </select>
+		                                        </div>
+                                                <div class="form-group">
+                                                    <label for="username">Username*</label>
+													<input type="text" class="form-control" name="username"  id="username"  th:field="*{username}" />
+													<span class="has-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password">Password*</label>
+													<input type="password" class="form-control pwd" name="password" id="password"
+													th:field="*{password}"   />
+													<span class="has-error" th:if="${#fields.hasErrors('username')}"  th:errors="*{password}"></span>
+                                                </div>
+                                                 
+                                                <div class="form-group mb-4 pb-3">
+                                                    <div class="custom-control custom-checkbox checkbox-primary">
+                                                        <input type="checkbox" class="custom-control-input" id="checkbox-signin">
+                                                        <label class="custom-control-label" for="checkbox-signin">I accept <a href="#">Terms and Conditions</a></label>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="mb-3 text-center">
+                                                    <button class="btn btn-primary btn-block" type="submit"> Sign Up Free </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- end card-body -->
+                                    </div>
+                                    <!-- end card -->
+            
+                                    <div class="row mt-4">
+                                        <div class="col-sm-12 text-center">
+                                            <p class="text-white-50 mb-0">Already have an account? 
+                                            <a th:href="@{/login}" class="text-white-50 ml-1"><b>Login</b></a></p>
+                                        </div>
+                                    </div>
+            
+                                </div>
+                                <!-- end col -->
+                            </div>
+                            <!-- end row -->
+                        </div> <!-- end .w-100 -->
+                    </div> <!-- end .d-flex -->
+                </div> <!-- end col-->
+            </div> <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end page -->
+
+ <!-- jQuery  -->
+	<script th:src="@{js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/metismenu.min.js}"></script>
+	<script th:src="@{/js/waves.js}"></script>
+	<script th:src="@{/js/simplebar.min.js}"></script>
+
+	<!-- App js -->
+	<script src="@{/js/theme.js}"></script>
+
+</body>
+
+
+<!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/pages-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Oct 2021 02:21:06 GMT -->
+</html>

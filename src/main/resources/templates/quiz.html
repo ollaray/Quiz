@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/pages-starter.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Oct 2021 02:21:05 GMT -->
+<head th:replace="commons/fragmentation :: top-header" />
+ 
+
+
+<body>
+    <div id="layout-wrapper">
+
+      <div th:replace="commons/fragmentation :: top-nav" />
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div th:replace="commons/fragmentation :: sidebar" />
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <!--<h4 class="mb-0 font-size-18">Quiz</h4>-->
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
+                                        <li class="breadcrumb-item active">Quiz List</li>
+                                    </ol>
+                                </div>
+							
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <!-- end page title -->
+					  <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="card-title">Quiz List</h4>
+                                   <!-- <p class="card-subtitle mb-4">
+                                        The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page
+                                        that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
+                                    </p>-->
+
+                                    <table id="datatable-buttons" class="table table-striped dt-responsive nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>Quiz Title</th>
+                                                <th>Description</th>
+                                                <th>Username</th>
+                                                <th>Action</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                    
+                                        <tbody>
+                                            <tr th:each="query:${quiz}">
+                                                <td th:text="${query.title}"></td>
+                                                <td th:text="${query.description}"></td>
+                                                <td th:text="${query.username}"></td>
+                                             	<td>
+                                             		<a th:href="@{/view-quiz/{id}(id=${query.id})}" class="btn btn-info" rel="button">View Quiz</a>
+                                             	</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                    
+                                </div> <!-- end card body-->
+                            </div> <!-- end card -->
+                        </div><!-- end col-->
+                    </div>
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+         <div th:replace="commons/fragmentation :: footer" />
+
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+
+    <div th:replace="commons/fragmentation :: scripts" />
+    <div th:replace="commons/fragmentation :: table-plugins" />
+	
+</body>
+
+
+<!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/pages-starter.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Oct 2021 02:21:05 GMT -->
+</html>

@@ -1,0 +1,38 @@
+[
+    {
+      "question": "Which of the following is true about energy?",
+      "a": "Energy is a force",
+      "b": "Heat is a form of Energy",
+      "c": "Energy cannot be transfered",
+    
+      "answer": "b"
+    },
+    {
+      "question": "Which of the following is another name for Boiling?",
+      "a": "Ebuillition",
+      "b": "Evaporation",
+      "c": "Vaporization",
+      "answer": "a"
+    },
+    {
+      "question":"What is the name of the energy required to change the state of ice to liquid?",
+      "a": "Melting Energy",
+      "b":"Latent heat of Fusion",
+      "c":"Vaporization Heat",
+      "answer":"b"
+    },
+    {
+        "question":"Which of the following is not a consequence of heat?",
+        "a":"Change in temperature",
+        "b":"Change of state",
+        "c":"Binary operation",
+        "answer":"c"
+    },
+    {
+        "question":"Which of the following is a better explanation for energy transfer and conversion",
+        "a":"Due to energy transfer a noisy generator would consume more fuel than a quiet one",
+        "b":"Workdone in a state of rest",
+        "c":"A force exerted by an object on anything that freely supports it",
+        "answer":"a"
+    }
+  ]
